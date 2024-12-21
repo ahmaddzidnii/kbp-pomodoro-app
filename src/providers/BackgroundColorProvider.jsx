@@ -1,8 +1,8 @@
-import { Helmet } from "react-helmet";
+import { useMemo } from "react";
+import { Helmet } from "react-helmet-async";
 
 import { usePomodoroState } from "../store/usePomodoroState";
 import { cn } from "../utils/cn";
-import { useMemo } from "react";
 
 export const BackgroundColorProvider = ({ children }) => {
   const { state } = usePomodoroState();
@@ -10,15 +10,16 @@ export const BackgroundColorProvider = ({ children }) => {
   const title = useMemo(() => {
     switch (state.timerType) {
       case "pomodoro":
-        return "Waktunya Fokus - Ahmad Zidni Hidayat";
+        return "Waktunya Fokus";
       case "shortBreak":
-        return "Istirahat Sebentar - Ahmad Zidni Hidayat";
+        return "Istirahat Sebentar";
       case "longBreak":
-        return "Selamat Istirahat - Ahmad Zidni Hidayat";
+        return "Selamat Istirahat";
       default:
         return "Pomodoro App - Ahmad Zidni Hidayat";
     }
   }, [state.timerType]);
+
   return (
     <>
       <Helmet>

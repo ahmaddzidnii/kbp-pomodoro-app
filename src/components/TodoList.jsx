@@ -1,72 +1,42 @@
-import { IoIosMore } from "react-icons/io";
-import { Button } from "./Button";
-import { FormTodo } from "./FormTodo";
-import { cn } from "../utils/cn";
+import { useMemo } from "react";
+import { SiLazyvim } from "react-icons/si";
 
-const todos = [
-  {
-    id: 1,
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias natus assumenda voluptate?",
-    completed: false,
-  },
-  {
-    id: 2,
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias natus assumenda voluptate?",
-    completed: false,
-  },
-  {
-    id: 3,
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias natus assumenda voluptate?",
-    completed: false,
-  },
-  {
-    id: 4,
-    description: "madang",
-    completed: true,
-  },
-];
-
-const shortedTodos = todos.sort((a, b) => a.completed - b.completed);
+import { TodoForm } from "./TodoForm";
+import { TodoItem } from "./TodoItem";
+import { useTodoListStore } from "../store/useTodoListStore";
 
 export const TodoList = () => {
+  const { todos, getCompletedTodos, getTotalTodos } = useTodoListStore();
+
+  const shortedTodos = useMemo(() => todos.sort((a, b) => a.completed - b.completed), [todos]);
+
   return (
-    <section className="max-w-lg mx-auto ">
-      <h1 className="font-bold text-xl">Todo List :</h1>
+    <section>
+      <div className="flex justify-between items-center">
+        <h1 className="font-bold text-xl">Todo List :</h1>
+        <span className="text-xl font-bold">{`${
+          getCompletedTodos().length
+        }/${getTotalTodos()}`}</span>
+      </div>
       <hr className="border-2 mb-3 mt-1" />
-      <FormTodo />
+      <TodoForm />
+
       <div>
-        {shortedTodos.map((todo) => (
-          <div
-            key={todo.id}
-            className="bg-white border-2 flex gap-x-2 justify-between border-black p-3 rounded-lg mt-3 shadow-[3px_3px_0_0_rgba(0,0,0,1)]"
-          >
-            <div>
-              <input
-                id={todo.id}
-                type="checkbox"
-                value=""
-                defaultChecked={todo.completed}
-                className="w-6 h-6 text-green-600 bg-gray-100 border-gray-300 rounded-full"
-              />
-            </div>
-            <p
-              className={cn(
-                "text-sm md:text-lg  flex-1 font-semibold",
-                todo.completed && "line-through"
-              )}
-            >
-              {todo.description}
-            </p>
-            <div>
-              <Button className="w-8 h-8 p-0">
-                <IoIosMore />
-              </Button>
+        {shortedTodos.length === 0 ? (
+          <div className="w-full h-[260px] bg-white flex justify-center items-center mt-3 rounded-md p-4 text-lg font-bold shadow-[3px_3px_0_0_rgba(0,0,0,1)] border-[3px] border-black">
+            <div className="flex justify-center flex-col items-center gap-2">
+              <SiLazyvim className="size-16" />
+              <span className="text-xl">Tidak ada tugas, Waktunya bersantai</span>
             </div>
           </div>
-        ))}
+        ) : (
+          shortedTodos.map((todo) => (
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+            />
+          ))
+        )}
       </div>
     </section>
   );
