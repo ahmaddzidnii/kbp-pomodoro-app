@@ -6,7 +6,6 @@ import { useProgress } from "../store/useProgress";
 import { useCountDown } from "../hooks/useCountDown";
 import { formatCountdown } from "../utils/formatCountdown";
 import { usePomodoroState } from "../store/usePomodoroState";
-import { useRendersCount } from "react-use";
 
 const tabs = [
   {
@@ -20,12 +19,8 @@ const tabs = [
 ];
 
 export const Pomodoro = () => {
-  const { state, setState } = usePomodoroState();
   const { setProgress } = useProgress();
-
-  const render = useRendersCount();
-
-  console.log("render Pomodoro", render);
+  const { state, setState } = usePomodoroState();
 
   const [isManual, setIsManual] = useState(true);
 
@@ -33,6 +28,7 @@ export const Pomodoro = () => {
     initialTime: state.timerType === "pomodoro" ? state.timers.pomodoro : state.timers.istirahat,
     onEnd: () => {
       setTimeout(() => {
+        playSound();
         setIsManual(false);
         setState({
           ...state,
@@ -50,10 +46,9 @@ export const Pomodoro = () => {
     reset(state.timers[state.timerType] * 60);
 
     if (!isManual) {
-      console.log("tidak manual");
       start();
     }
-  }, [state.timerType, isManual]);
+  }, [state.timerType, state.timers, isManual]);
 
   const handleStart = () => {
     start();
@@ -67,6 +62,15 @@ export const Pomodoro = () => {
     pause();
     reset();
   };
+
+  function playSound() {
+    const audio = document.createElement("audio");
+    audio.src =
+      state.timerType === "pomodoro"
+        ? "/assets/sounds/saatnyaistirahat.mp3"
+        : "/assets/sounds/bell-172780.mp3";
+    audio.play();
+  }
 
   const handleTabChange = (tabId) => {
     // pause countdown saat user navigasi ke tab lain secara manual

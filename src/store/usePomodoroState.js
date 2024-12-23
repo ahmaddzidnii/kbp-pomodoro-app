@@ -7,8 +7,8 @@ export const usePomodoroState = create(
       return {
         state: {
           timers: {
-            pomodoro: 0.1,
-            istirahat: 0.2,
+            pomodoro: 5,
+            istirahat: 1,
           },
           cycles: 4,
           currentCycle: 0,
