@@ -1,21 +1,24 @@
 import { Toaster } from "react-hot-toast";
 
-import { Navbar } from "./components/Navbar";
 import { Spotify } from "./components/Spotify";
-import { TodoList } from "./components/TodoList";
+import { Navbar } from "./components/Navbar";
 import { Pomodoro } from "./components/Pomodoro";
+import { TodoList } from "./components/TodoList";
+import { ModalOptions } from "./components/ModalOptions";
 import { BackgroundColorProvider } from "./providers/BackgroundColorProvider";
 
 import "./App.css";
+import { ProgressComponent } from "./components/ProgressComponent";
 
 function App() {
-  console.log("main render");
   return (
     <main>
       <Toaster />
       <BackgroundColorProvider>
+        <ModalOptions />
         <div className="max-w-lg md:max-w-3xl mx-auto space-y-5">
           <Navbar />
+          <ProgressComponent />
           <Pomodoro />
           {/* <Spotify /> */}
           <TodoList />

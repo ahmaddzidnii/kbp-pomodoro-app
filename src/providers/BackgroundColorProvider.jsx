@@ -11,10 +11,8 @@ export const BackgroundColorProvider = ({ children }) => {
     switch (state.timerType) {
       case "pomodoro":
         return "Waktunya Fokus";
-      case "shortBreak":
+      case "istirahat":
         return "Istirahat Sebentar";
-      case "longBreak":
-        return "Selamat Istirahat";
       default:
         return "Pomodoro App - Ahmad Zidni Hidayat";
     }
@@ -29,8 +27,7 @@ export const BackgroundColorProvider = ({ children }) => {
         className={cn(
           "min-h-screen px-2 lg:px-0 transition-colors duration-500",
           state.timerType === "pomodoro" && "bg-primary",
-          state.timerType === "shortBreak" && "bg-[#6FB1FC]",
-          state.timerType === "longBreak" && "bg-[#5EBA7D]"
+          state.timerType === "istirahat" && "bg-[#5EBA7D]"
         )}
       >
         {children}
