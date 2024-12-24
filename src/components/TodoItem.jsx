@@ -8,10 +8,13 @@ import { Button } from "./Button";
 import { ModalEditTodo } from "./ModalEditTodo";
 import { useConfirm } from "../hooks/useConfirm";
 import { useTodoListStore } from "../store/useTodoListStore";
+import useContributionStore from "../store/useContributionsStore";
 
 export const TodoItem = ({ todo }) => {
   const { toggleTodo, removeTodo } = useTodoListStore();
   const [ModalConfirm, confirm] = useConfirm();
+
+  const { addContribution } = useContributionStore();
 
   const [stateEdit, setStateEdit] = useState({
     isEditing: false,
@@ -27,9 +30,16 @@ export const TodoItem = ({ todo }) => {
     });
   };
 
-  const handleToggleTodo = (id) => {
+  const handleToggleTodo = (id, isCompleted) => {
     if (!id) return;
     toggleTodo(id);
+    // Jika tugas sebelumnya belum selesai dan sekarang menjadi selesai
+    if (!isCompleted) {
+      const today = new Date().toISOString().split("T")[0];
+
+      // Tambahkan kontribusi untuk hari ini
+      addContribution(today, 1);
+    }
   };
 
   const handleDeleteTodo = async () => {
@@ -68,7 +78,7 @@ export const TodoItem = ({ todo }) => {
               isSelected={todo.completed}
               size="lg"
               color="success"
-              onValueChange={(isSelected) => handleToggleTodo(todo.id)}
+              onValueChange={(isSelected) => handleToggleTodo(todo.id, todo.completed)}
             />
           </div>
 

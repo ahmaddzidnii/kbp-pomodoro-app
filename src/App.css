@@ -3,3 +3,25 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+
+/* Warna untuk nilai kosong */
+.color-empty {
+  fill: #ebedf0; /* Abu-abu terang */
+}
+
+/* Warna hijau sesuai tingkat kontribusi */
+.color-scale-0 {
+  fill: #ebedf0; /* Level 0: default */
+}
+.color-scale-1 {
+  fill: #9be9a8; /* Level 1: hijau terang */
+}
+.color-scale-2 {
+  fill: #40c463; /* Level 2: hijau sedang */
+}
+.color-scale-3 {
+  fill: #30a14e; /* Level 3: hijau gelap */
+}
+.color-scale-4 {
+  fill: #216e39; /* Level 4: hijau sangat gelap */
+}
