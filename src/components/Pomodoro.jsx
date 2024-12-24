@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { GrPowerReset } from "react-icons/gr";
+import { FaPause, FaPlay } from "react-icons/fa6";
 
 import { cn } from "../utils/cn";
 import { useProgress } from "../store/useProgress";
@@ -115,14 +116,14 @@ export const Pomodoro = () => {
               onClick={handlePause}
               className="bg-[#1D4C6A] text-foreground rounded-md font-bold px-4 py-2 border-2 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-[#1D4C6A]/80"
             >
-              Stop
+              <FaPause className="size-6" />
             </button>
           ) : (
             <button
               onClick={handleStart}
               className="bg-[#1D4C6A] text-foreground rounded-md font-bold px-4 py-2 border-2 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-[#1D4C6A]/80"
             >
-              Start
+              <FaPlay className="size-6" />
             </button>
           )}
           <button

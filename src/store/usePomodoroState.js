@@ -17,8 +17,6 @@ export const usePomodoroState = create(
           volumeAlarm: 0.5,
           cycles: 4,
           currentCycle: 0,
-          isPlaying: false,
-          isPaused: false,
           timerType: "pomodoro",
         },
 

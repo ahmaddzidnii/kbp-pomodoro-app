@@ -13,7 +13,15 @@ export const TodoList = () => {
   return (
     <section>
       <div className="flex justify-between items-center">
-        <h1 className="font-bold text-xl">Todo List :</h1>
+        <div className="flex items-center gap-2">
+          <div
+            className="size-10 rounded-full aspect-square p-4 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url("/assets/img/todo-icon.png")`,
+            }}
+          />
+          <h1 className="font-bold text-xl">Todo List :</h1>
+        </div>
         <span className="text-xl font-bold">{`${
           getCompletedTodos().length
         }/${getTotalTodos()}`}</span>
@@ -26,7 +34,7 @@ export const TodoList = () => {
           <div className="w-full h-[260px] bg-white flex justify-center items-center mt-3 rounded-md p-4 text-lg font-bold shadow-[3px_3px_0_0_rgba(0,0,0,1)] border-[3px] border-black">
             <div className="flex justify-center flex-col items-center gap-2">
               <SiLazyvim className="size-16" />
-              <span className="text-xl">Tidak ada tugas, Waktunya bersantai</span>
+              <span className="text-xl text-center">Tidak ada tugas, Waktunya bersantai</span>
             </div>
           </div>
         ) : (
