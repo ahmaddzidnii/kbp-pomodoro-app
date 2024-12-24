@@ -21,14 +21,16 @@ function App() {
         <div className="max-w-lg h-full md:max-w-7xl mx-auto space-y-5">
           <Navbar />
           <ProgressComponent />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full sm:px-2">
             <div className="order-first space-y-5">
               <Pomodoro />
               <Spotify />
             </div>
-            <TodoList />
+            <div>
+              <TodoList />
+              <Motivation />
+            </div>
           </div>
-          <Motivation />
           <Footer />
         </div>
       </BackgroundColorProvider>

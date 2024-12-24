@@ -32,6 +32,17 @@ export const ModalOptions = () => {
       toast.error("Timer tidak boleh kurang dari 1 menit");
       return;
     }
+
+    if (
+      settings.timer.pomodoro === state.timers.pomodoro &&
+      settings.timer.istirahat === state.timers.istirahat &&
+      settings.audios.pomodoro === state.audios.pomodoro &&
+      settings.audios.istirahat === state.audios.istirahat &&
+      settings.volumeAlarm === state.volumeAlarm
+    ) {
+      onClose();
+      return;
+    }
     setState({
       ...state,
       timers: {
