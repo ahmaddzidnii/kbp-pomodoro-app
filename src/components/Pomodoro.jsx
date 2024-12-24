@@ -114,16 +114,18 @@ export const Pomodoro = () => {
           {isActive ? (
             <button
               onClick={handlePause}
-              className="bg-[#1D4C6A] text-foreground rounded-md font-bold px-4 py-2 border-2 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-[#1D4C6A]/80"
+              className="bg-[#1D4C6A] text-foreground inline-flex items-center rounded-md font-bold px-4 py-2 border-2 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-[#1D4C6A]/80"
             >
               <FaPause className="size-6" />
+              <span className="ml-3 hidden md:block ">Pause</span>
             </button>
           ) : (
             <button
               onClick={handleStart}
-              className="bg-[#1D4C6A] text-foreground rounded-md font-bold px-4 py-2 border-2 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-[#1D4C6A]/80"
+              className="bg-[#1D4C6A] text-foreground inline-flex items-center rounded-md font-bold px-4 py-2 border-2 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-[#1D4C6A]/80"
             >
               <FaPlay className="size-6" />
+              <span className="ml-3 hidden md:block ">Mulai</span>
             </button>
           )}
           <button

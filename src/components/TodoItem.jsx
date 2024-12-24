@@ -5,9 +5,9 @@ import { FaPencil, FaTrash } from "react-icons/fa6";
 
 import { cn } from "../utils/cn";
 import { Button } from "./Button";
+import { ModalEditTodo } from "./ModalEditTodo";
 import { useConfirm } from "../hooks/useConfirm";
 import { useTodoListStore } from "../store/useTodoListStore";
-import { ModalEditTodo } from "./ModalEditTodo";
 
 export const TodoItem = ({ todo }) => {
   const { toggleTodo, removeTodo } = useTodoListStore();
