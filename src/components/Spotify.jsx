@@ -38,13 +38,17 @@ export const Spotify = () => {
 
   return (
     <>
-      <iframe
-        src={playlistCommit}
-        width="100%"
-        height="152"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-      ></iframe>
+      <div className="w-full relative h-[152px]">
+        <div className="absolute inset-0 h-[152px] bg-slate-400/90 rounded-lg animate-pulse" />
+        <iframe
+          className="absolute inset-0"
+          src={playlistCommit}
+          width="100%"
+          height="152"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </div>
 
       <form
         className="flex items-center"

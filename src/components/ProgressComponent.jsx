@@ -37,7 +37,7 @@ export const ProgressComponent = () => {
         }}
         maxValue={TOTAL_TIME}
         classNames={{
-          base: "w-full h-2",
+          base: "w-full h-1",
           track: "drop-shadow-md",
           indicator: "bg-[#307BA9]",
           value: "text-foreground/60",
