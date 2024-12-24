@@ -10,6 +10,11 @@ export const usePomodoroState = create(
             pomodoro: 5,
             istirahat: 1,
           },
+          audios: {
+            pomodoro: "/assets/sounds/bell.mp3",
+            istirahat: "/assets/sounds/saatnyaistirahat.mp3",
+          },
+          volumeAlarm: 0.5,
           cycles: 4,
           currentCycle: 0,
           isPlaying: false,

@@ -2,7 +2,6 @@ import { useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 
 import { usePomodoroState } from "../store/usePomodoroState";
-import { cn } from "../utils/cn";
 
 export const BackgroundColorProvider = ({ children }) => {
   const { state } = usePomodoroState();
@@ -24,11 +23,10 @@ export const BackgroundColorProvider = ({ children }) => {
         <title>{`${title}`}</title>
       </Helmet>
       <div
-        className={cn(
-          "min-h-screen px-2 lg:px-0 transition-colors duration-500",
-          state.timerType === "pomodoro" && "bg-primary",
-          state.timerType === "istirahat" && "bg-[#5EBA7D]"
-        )}
+        className="min-h-screen px-2 lg:px-0 transition-colors duration-500"
+        style={{
+          backgroundColor: state.timerType === "pomodoro" ? "#7FCEFF" : "#5EBA7D",
+        }}
       >
         {children}
       </div>

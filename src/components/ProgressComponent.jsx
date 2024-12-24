@@ -1,10 +1,10 @@
+import { useMemo } from "react";
+import { Helmet } from "react-helmet-async";
 import { Progress } from "@nextui-org/progress";
 
 import { useProgress } from "../store/useProgress";
-import { usePomodoroState } from "../store/usePomodoroState";
-import { Helmet } from "react-helmet-async";
-import { useMemo } from "react";
 import { formatCountdown } from "../utils/formatCountdown";
+import { usePomodoroState } from "../store/usePomodoroState";
 
 export const ProgressComponent = () => {
   const { progress } = useProgress();

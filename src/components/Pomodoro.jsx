@@ -67,8 +67,9 @@ export const Pomodoro = () => {
     const audio = document.createElement("audio");
     audio.src =
       state.timerType === "pomodoro"
-        ? "/assets/sounds/saatnyaistirahat.mp3"
-        : "/assets/sounds/bell-172780.mp3";
+        ? state.audios.istirahat ?? "/assets/sounds/saatnyaistirahat.mp3"
+        : state.audios.pomodoro ?? "/assets/sounds/bell.mp3";
+    audio.volume = state.volumeAlarm;
     audio.play();
   }
 
