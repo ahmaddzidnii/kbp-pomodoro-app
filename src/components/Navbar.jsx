@@ -1,10 +1,10 @@
 import { FaGear } from "react-icons/fa6";
-
-import { useModalOptions } from "../store/useModalOptions";
-import { Button } from "./Button";
-import { Logo } from "./Logo";
 import { ImStatsDots } from "react-icons/im";
+
+import { Logo } from "./Logo";
+import { Button } from "./Button";
 import { useModalStats } from "../store/useModalStats";
+import { useModalOptions } from "../store/useModalOptions";
 
 export const Navbar = () => {
   const { onOpen } = useModalOptions();

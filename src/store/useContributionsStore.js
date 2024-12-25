@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 // Helper untuk generate data kosong
 const generateEmptyData = (daysBack = 365) => {
@@ -21,16 +21,24 @@ const generateEmptyData = (daysBack = 365) => {
 const useContributionStore = create(
   persist(
     (set, get) => ({
-      // State sebagai array of objects
       contributions: generateEmptyData(),
-
-      // Menambah kontribusi
       addContribution: (date, value) =>
-        set((state) => ({
-          contributions: state.contributions.map((item) =>
-            item.date === date ? { ...item, count: item.count + value } : item
-          ),
-        })),
+        set((state) => {
+          const index = state.contributions.findIndex((item) => item.date === date);
+          if (index !== -1) {
+            // Jika tanggal ditemukan, update count
+            const contributions = [...state.contributions];
+            contributions[index] = {
+              ...contributions[index],
+              count: contributions[index].count + value,
+            };
+            return { contributions };
+          }
+          // Jika tanggal tidak ditemukan, tambahkan entri baru
+          return {
+            contributions: [...state.contributions, { date, count: value }],
+          };
+        }),
 
       // Reset ke data kosong
       resetContributions: () =>
@@ -53,6 +61,8 @@ const useContributionStore = create(
     }),
     {
       name: "contribution-storage",
+      storage: createJSONStorage(() => localStorage),
+      version: 2,
     }
   )
 );

@@ -4,6 +4,11 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.react-calendar-heatmap .react-calendar-heatmap-weekday-labels text {
+  font-size: 9px;
+  text-anchor: middle;
+}
+
 /* Warna untuk nilai kosong */
 .color-empty {
   fill: #ebedf0; /* Abu-abu terang */

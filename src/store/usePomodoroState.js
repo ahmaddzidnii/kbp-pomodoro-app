@@ -15,7 +15,6 @@ export const usePomodoroState = create(
             istirahat: "/assets/sounds/saatnyaistirahat.mp3",
           },
           volumeAlarm: 0.5,
-          cycles: 4,
           currentCycle: 0,
           timerType: "pomodoro",
         },
@@ -33,6 +32,7 @@ export const usePomodoroState = create(
     {
       name: "pomodoro-state",
       storage: createJSONStorage(() => localStorage),
+      version: 1,
     }
   )
 );

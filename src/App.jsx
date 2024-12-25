@@ -20,21 +20,21 @@ function App() {
       <BackgroundColorProvider>
         <ModalOptions />
         <ModalStats />
-        <div className="max-w-lg h-full md:max-w-7xl mx-auto space-y-5">
+        <div className="max-w-lg min-h-screen md:max-w-7xl mx-auto space-y-5">
           <Navbar />
           <ProgressComponent />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full sm:px-2">
             <div className="order-first space-y-5">
               <Pomodoro />
-              {/* <Spotify /> */}
+              <Spotify />
             </div>
             <div>
               <TodoList />
               <Motivation />
             </div>
           </div>
-          <Footer />
         </div>
+        <Footer />
       </BackgroundColorProvider>
     </main>
   );

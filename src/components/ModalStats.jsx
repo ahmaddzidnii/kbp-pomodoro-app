@@ -1,8 +1,8 @@
 import React from "react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/modal";
 
-import { useModalStats } from "../store/useModalStats";
 import { HeatMapChart } from "./GithubHeatmap";
+import { useModalStats } from "../store/useModalStats";
 
 export const ModalStats = () => {
   const { isOpen, onClose } = useModalStats();
@@ -15,17 +15,20 @@ export const ModalStats = () => {
     <Modal
       backdrop="blur"
       size="3xl"
-      placement="center"
       isOpen={isOpen}
       onClose={handleClose}
       scrollBehavior="inside"
     >
       <ModalContent>
         <>
-          <ModalHeader className="flex flex-col gap-1">Statistik Graph</ModalHeader>
-          <ModalBody className="space-y-5">
+          <ModalHeader className="flex flex-col gap-1">Graph Keaktifan </ModalHeader>
+          <ModalBody className="">
             <HeatMapChart />
+            <p className="text-sm text-slate-400">
+              *Aktivitas dihitung dari jumlah berapa kali menyelesaikan todo (tugas).
+            </p>
           </ModalBody>
+          <ModalFooter></ModalFooter>
         </>
       </ModalContent>
     </Modal>
