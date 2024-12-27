@@ -34,7 +34,7 @@ export const TodoList = () => {
 
       <div>
         {shortedTodos.length === 0 ? (
-          <div className="mt-3 flex h-[260px] w-full items-center justify-center rounded-md border-[3px] border-black bg-white p-4 text-lg font-bold shadow-[3px_3px_0_0_rgba(0,0,0,1)]">
+          <div className="mt-3 flex h-[260px] w-full items-center justify-center rounded-md bg-white p-4 text-lg font-bold">
             <div className="flex flex-col items-center justify-center gap-2">
               <SiLazyvim className="size-16" />
               <span className="text-center text-xl">

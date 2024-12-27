@@ -23,7 +23,7 @@ function App() {
         <div className="mx-auto min-h-screen max-w-lg md:max-w-7xl">
           <Navbar />
           <ProgressComponent />
-          <div className="grid w-full grid-cols-1 gap-5 sm:px-2 md:grid-cols-2">
+          <div className="grid w-full grid-cols-1 gap-5 px-2 sm:px-0 md:grid-cols-2">
             <div className="order-first space-y-5">
               <Pomodoro />
               <Spotify />
