@@ -30,7 +30,7 @@ export const TodoForm = () => {
   return (
     <form
       onSubmit={handleAddTodo}
-      className="relative"
+      className="flex"
     >
       <input
         type="text"
@@ -38,11 +38,11 @@ export const TodoForm = () => {
         onChange={(e) => setDescription(e.target.value)}
         id="input-todo"
         placeholder="Mau nugas apa..."
-        className="w-full rounded-md p-4 text-lg font-bold shadow-[3px_3px_0_0_rgba(0,0,0,1)] border-[3px] border-black placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-black"
+        className="w-full rounded-e-none p-4 text-lg font-bold shadow-[3px_3px_0_0_rgba(0,0,0,1)] border-[3px] border-black placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-black"
       />
       <Button
         type="submit"
-        className="absolute right-2 top-1/2 -translate-y-1/2"
+        className="rounded-s-none"
       >
         <FaPlus className="size-5" />
       </Button>

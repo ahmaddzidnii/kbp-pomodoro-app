@@ -101,7 +101,7 @@ export const TodoItem = ({ todo }) => {
               <FaPencil className="h-4 w-4" />
             </Button>
             <Button
-              className="w-8 h-8 p-0"
+              className="w-8 h-8 p-0 bg-red-500 text-white border-black hover:bg-red-500/80"
               onClick={handleDeleteTodo}
             >
               <FaTrash className="h-4 w-4" />

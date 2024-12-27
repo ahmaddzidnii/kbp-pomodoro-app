@@ -20,7 +20,7 @@ function App() {
       <BackgroundColorProvider>
         <ModalOptions />
         <ModalStats />
-        <div className="max-w-lg min-h-screen md:max-w-7xl mx-auto space-y-5">
+        <div className="max-w-lg min-h-screen md:max-w-7xl mx-auto">
           <Navbar />
           <ProgressComponent />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full sm:px-2">

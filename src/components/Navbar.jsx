@@ -10,7 +10,7 @@ export const Navbar = () => {
   const { onOpen } = useModalOptions();
   const { onOpen: onOpenModalStats } = useModalStats();
   return (
-    <header className="flex justify-between items-center w-full py-10 h-14">
+    <header className="flex justify-between pt-3 items-center w-full h-14">
       <Logo />
       <div className="space-x-3">
         <Button onClick={onOpenModalStats}>

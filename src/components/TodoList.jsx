@@ -11,9 +11,9 @@ export const TodoList = () => {
   const shortedTodos = useMemo(() => todos.sort((a, b) => a.completed - b.completed), [todos]);
 
   return (
-    <section>
+    <section className="bg-white p-5 rounded-lg shadow-[3px_3px_0_0_rgba(0,0,0,1)]">
       <div className="flex justify-between items-center">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 mb-3">
           <div
             className="size-10 rounded-full aspect-square p-4 bg-cover bg-center bg-no-repeat"
             style={{
@@ -26,7 +26,7 @@ export const TodoList = () => {
           getCompletedTodos().length
         }/${getTotalTodos()}`}</span>
       </div>
-      <hr className="border-2 mb-3 mt-1" />
+
       <TodoForm />
 
       <div>
