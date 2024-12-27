@@ -1,5 +1,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
+import { useFirstMountState } from "react-use";
 import { Checkbox } from "@nextui-org/checkbox";
 import { FaPencil, FaTrash } from "react-icons/fa6";
 
@@ -14,6 +16,7 @@ export const TodoItem = ({ todo }) => {
   const { toggleTodo, removeTodo } = useTodoListStore();
   const [ModalConfirm, confirm] = useConfirm();
 
+  const isFirstMount = useFirstMountState();
   const { addContribution } = useContributionStore();
 
   const [stateEdit, setStateEdit] = useState({
@@ -69,7 +72,21 @@ export const TodoItem = ({ todo }) => {
           });
         }}
       />
-      <div className="mt-3 rounded-lg border-2 border-black bg-white p-3 shadow-[3px_3px_0_0_rgba(0,0,0,1)]">
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 10 }}
+        layout
+        transition={{
+          layout: {
+            duration: 0.4,
+            ease: "easeInOut",
+          },
+          duration: 0.4,
+          ease: "easeInOut",
+        }}
+        className="mt-3 rounded-lg border-2 border-black bg-white p-3 shadow-[3px_3px_0_0_rgba(0,0,0,1)]"
+      >
         <div className="flex gap-x-3">
           <div className="flex-shrink-0 pt-1">
             <Checkbox
@@ -110,7 +127,7 @@ export const TodoItem = ({ todo }) => {
             </Button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
