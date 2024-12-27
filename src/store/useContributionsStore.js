@@ -24,7 +24,9 @@ const useContributionStore = create(
       contributions: generateEmptyData(),
       addContribution: (date, value) =>
         set((state) => {
-          const index = state.contributions.findIndex((item) => item.date === date);
+          const index = state.contributions.findIndex(
+            (item) => item.date === date,
+          );
           if (index !== -1) {
             // Jika tanggal ditemukan, update count
             const contributions = [...state.contributions];
@@ -49,7 +51,9 @@ const useContributionStore = create(
       // Mendapatkan kontribusi untuk tanggal tertentu
       getContributionByDate: (date) => {
         const state = get();
-        const contribution = state.contributions.find((item) => item.date === date);
+        const contribution = state.contributions.find(
+          (item) => item.date === date,
+        );
         return contribution ? contribution.count : 0;
       },
 
@@ -63,8 +67,8 @@ const useContributionStore = create(
       name: "contribution-storage",
       storage: createJSONStorage(() => localStorage),
       version: 2,
-    }
-  )
+    },
+  ),
 );
 
 export default useContributionStore;

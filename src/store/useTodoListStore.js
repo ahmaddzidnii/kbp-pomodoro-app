@@ -21,14 +21,16 @@ export const useTodoListStore = create(
       toggleTodo: (id) => {
         set((state) => ({
           todos: state.todos.map((todo) =>
-            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo,
           ),
         }));
       },
 
       updateTodo: (id, description) => {
         set((state) => ({
-          todos: state.todos.map((todo) => (todo.id === id ? { ...todo, description } : todo)),
+          todos: state.todos.map((todo) =>
+            todo.id === id ? { ...todo, description } : todo,
+          ),
         }));
       },
 
@@ -44,6 +46,6 @@ export const useTodoListStore = create(
       name: "todo-storage",
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({ todos: state.todos }),
-    }
-  )
+    },
+  ),
 );

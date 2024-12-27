@@ -1,5 +1,11 @@
 import React from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/modal";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@nextui-org/modal";
 
 import { HeatMapChart } from "./GithubHeatmap";
 import { useModalStats } from "../store/useModalStats";
@@ -21,11 +27,14 @@ export const ModalStats = () => {
     >
       <ModalContent>
         <>
-          <ModalHeader className="flex flex-col gap-1">Graph Keaktifan </ModalHeader>
+          <ModalHeader className="flex flex-col gap-1">
+            Graph Keaktifan{" "}
+          </ModalHeader>
           <ModalBody className="">
             <HeatMapChart />
             <p className="text-sm text-slate-400">
-              *Aktivitas dihitung dari jumlah berapa kali menyelesaikan todo (tugas).
+              *Aktivitas dihitung dari jumlah berapa kali menyelesaikan todo
+              (tugas).
             </p>
           </ModalBody>
           <ModalFooter></ModalFooter>

@@ -3,7 +3,13 @@ import React, { useState } from "react";
 import { FaClock } from "react-icons/fa6";
 import { Slider } from "@nextui-org/slider";
 import { HiSpeakerWave } from "react-icons/hi2";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/modal";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@nextui-org/modal";
 
 import { Button } from "./Button";
 import { optionsSound } from "../constants/optionsSound";
@@ -127,7 +133,7 @@ export const ModalOptions = () => {
                         },
                       });
                     }}
-                    className="w-full rounded-md p-4 text-lg font-bold shadow-[3px_3px_0_0_rgba(0,0,0,1)] border-[3px] border-black placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-black"
+                    className="w-full rounded-md border-[3px] border-black p-4 text-lg font-bold placeholder-muted-foreground shadow-[3px_3px_0_0_rgba(0,0,0,1)] focus:outline-none focus:ring-1 focus:ring-black"
                     min={1}
                   />
                 </div>
@@ -146,7 +152,7 @@ export const ModalOptions = () => {
                         },
                       });
                     }}
-                    className="w-full rounded-md p-4 text-lg font-bold shadow-[3px_3px_0_0_rgba(0,0,0,1)] border-[3px] border-black placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-black"
+                    className="w-full rounded-md border-[3px] border-black p-4 text-lg font-bold placeholder-muted-foreground shadow-[3px_3px_0_0_rgba(0,0,0,1)] focus:outline-none focus:ring-1 focus:ring-black"
                   />
                 </div>
               </div>
@@ -161,17 +167,14 @@ export const ModalOptions = () => {
                   <label htmlFor="pomodoro-timer">Pomodoro</label>
                   <select
                     id="pomodoro-sound"
-                    className="w-full rounded-md p-4 text-lg font-bold shadow-[3px_3px_0_0_rgba(0,0,0,1)] border-[3px] border-black placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-black"
+                    className="w-full rounded-md border-[3px] border-black p-4 text-lg font-bold placeholder-muted-foreground shadow-[3px_3px_0_0_rgba(0,0,0,1)] focus:outline-none focus:ring-1 focus:ring-black"
                     onChange={handleSoundChange}
                     value={settings.audios.pomodoro}
                   >
                     {optionsSound
                       .filter((sound) => sound.scopes.includes("pomodoro"))
                       .map((sound) => (
-                        <option
-                          key={sound.id}
-                          value={sound.link}
-                        >
+                        <option key={sound.id} value={sound.link}>
                           {sound.label}
                         </option>
                       ))}
@@ -182,17 +185,14 @@ export const ModalOptions = () => {
 
                   <select
                     id="istirahat-sound"
-                    className="w-full rounded-md p-4 text-lg font-bold shadow-[3px_3px_0_0_rgba(0,0,0,1)] border-[3px] border-black placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-black"
+                    className="w-full rounded-md border-[3px] border-black p-4 text-lg font-bold placeholder-muted-foreground shadow-[3px_3px_0_0_rgba(0,0,0,1)] focus:outline-none focus:ring-1 focus:ring-black"
                     onChange={handleSoundChange}
                     value={settings.audios.istirahat}
                   >
                     {optionsSound
                       .filter((sound) => sound.scopes.includes("istirahat"))
                       .map((sound) => (
-                        <option
-                          key={sound.id}
-                          value={sound.link}
-                        >
+                        <option key={sound.id} value={sound.link}>
                           {sound.label}
                         </option>
                       ))}

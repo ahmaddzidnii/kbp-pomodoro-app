@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
-export const useCountDown = ({ initialTime = 1, onEnd = () => {}, autoStart = false }) => {
+export const useCountDown = ({
+  initialTime = 1,
+  onEnd = () => {},
+  autoStart = false,
+}) => {
   const [timeLeft, setTimeLeft] = useState(initialTime * 60);
   const [isActive, setIsActive] = useState(autoStart);
 

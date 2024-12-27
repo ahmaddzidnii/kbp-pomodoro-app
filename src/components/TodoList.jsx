@@ -8,19 +8,22 @@ import { useTodoListStore } from "../store/useTodoListStore";
 export const TodoList = () => {
   const { todos, getCompletedTodos, getTotalTodos } = useTodoListStore();
 
-  const shortedTodos = useMemo(() => todos.sort((a, b) => a.completed - b.completed), [todos]);
+  const shortedTodos = useMemo(
+    () => todos.sort((a, b) => a.completed - b.completed),
+    [todos],
+  );
 
   return (
-    <section className="bg-white p-5 rounded-lg shadow-[3px_3px_0_0_rgba(0,0,0,1)]">
-      <div className="flex justify-between items-center">
-        <div className="flex items-center gap-2 mb-3">
+    <section className="rounded-lg bg-white p-5 shadow-[3px_3px_0_0_rgba(0,0,0,1)]">
+      <div className="flex items-center justify-between">
+        <div className="mb-3 flex items-center gap-2">
           <div
-            className="size-10 rounded-full aspect-square p-4 bg-cover bg-center bg-no-repeat"
+            className="aspect-square size-10 rounded-full bg-cover bg-center bg-no-repeat p-4"
             style={{
               backgroundImage: `url("/assets/img/todo-icon.png")`,
             }}
           />
-          <h1 className="font-bold text-xl">Todo List :</h1>
+          <h1 className="text-xl font-bold">Todo List :</h1>
         </div>
         <span className="text-xl font-bold">{`${
           getCompletedTodos().length
@@ -31,19 +34,16 @@ export const TodoList = () => {
 
       <div>
         {shortedTodos.length === 0 ? (
-          <div className="w-full h-[260px] bg-white flex justify-center items-center mt-3 rounded-md p-4 text-lg font-bold shadow-[3px_3px_0_0_rgba(0,0,0,1)] border-[3px] border-black">
-            <div className="flex justify-center flex-col items-center gap-2">
+          <div className="mt-3 flex h-[260px] w-full items-center justify-center rounded-md border-[3px] border-black bg-white p-4 text-lg font-bold shadow-[3px_3px_0_0_rgba(0,0,0,1)]">
+            <div className="flex flex-col items-center justify-center gap-2">
               <SiLazyvim className="size-16" />
-              <span className="text-xl text-center">Tidak ada tugas, Waktunya bersantai</span>
+              <span className="text-center text-xl">
+                Tidak ada tugas, Waktunya bersantai
+              </span>
             </div>
           </div>
         ) : (
-          shortedTodos.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-            />
-          ))
+          shortedTodos.map((todo) => <TodoItem key={todo.id} todo={todo} />)
         )}
       </div>
     </section>

@@ -28,22 +28,16 @@ export const TodoForm = () => {
   };
 
   return (
-    <form
-      onSubmit={handleAddTodo}
-      className="flex"
-    >
+    <form onSubmit={handleAddTodo} className="flex">
       <input
         type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         id="input-todo"
         placeholder="Mau nugas apa..."
-        className="w-full rounded-e-none p-4 text-lg font-bold shadow-[3px_3px_0_0_rgba(0,0,0,1)] border-[3px] border-black placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-black"
+        className="w-full rounded-e-none border-[3px] border-black p-4 text-lg font-bold placeholder-muted-foreground shadow-[3px_3px_0_0_rgba(0,0,0,1)] focus:outline-none focus:ring-1 focus:ring-black"
       />
-      <Button
-        type="submit"
-        className="rounded-s-none"
-      >
+      <Button type="submit" className="rounded-s-none">
         <FaPlus className="size-5" />
       </Button>
     </form>

@@ -36,7 +36,12 @@ export const HeatMapChart = () => {
           // Skala warna dinamis: hitung rentang warna dengan normalisasi nilai
           const intensity =
             value.count > 0
-              ? Math.max(1, Math.round(((value.count - minCount) / (maxCount - minCount)) * 4))
+              ? Math.max(
+                  1,
+                  Math.round(
+                    ((value.count - minCount) / (maxCount - minCount)) * 4,
+                  ),
+                )
               : 0; // Pastikan minimal 1 jika count > 0
           return `color-scale-${intensity}`;
         }}
@@ -51,10 +56,10 @@ export const HeatMapChart = () => {
             day % 10 === 1 && day !== 11
               ? "st"
               : day % 10 === 2 && day !== 12
-              ? "nd"
-              : day % 10 === 3 && day !== 13
-              ? "rd"
-              : "th";
+                ? "nd"
+                : day % 10 === 3 && day !== 13
+                  ? "rd"
+                  : "th";
           const formattedDate = new Intl.DateTimeFormat("en-US", {
             month: "long",
           }).format(date);
@@ -68,11 +73,7 @@ export const HeatMapChart = () => {
         }}
         showWeekdayLabels
       />
-      <ReactTooltip
-        delayShow={50}
-        clickable={false}
-        id="heatmap-tooltip"
-      />
+      <ReactTooltip delayShow={50} clickable={false} id="heatmap-tooltip" />
     </div>
   );
 };

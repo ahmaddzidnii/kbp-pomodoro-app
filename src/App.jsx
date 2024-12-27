@@ -20,10 +20,10 @@ function App() {
       <BackgroundColorProvider>
         <ModalOptions />
         <ModalStats />
-        <div className="max-w-lg min-h-screen md:max-w-7xl mx-auto">
+        <div className="mx-auto min-h-screen max-w-lg md:max-w-7xl">
           <Navbar />
           <ProgressComponent />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full sm:px-2">
+          <div className="grid w-full grid-cols-1 gap-5 sm:px-2 md:grid-cols-2">
             <div className="order-first space-y-5">
               <Pomodoro />
               <Spotify />

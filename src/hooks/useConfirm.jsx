@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/modal";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@nextui-org/modal";
 
 import { Button } from "../components/Button";
 
@@ -7,7 +13,7 @@ export const useConfirm = (
   title = "Apakah anda yakin?",
   message = "Data yang dihapus tidak dapat dikembalikan?",
   onConfirm,
-  onCancel
+  onCancel,
 ) => {
   const [promise, setPromise] = useState(null);
 
@@ -39,19 +45,13 @@ export const useConfirm = (
 
   const ModalConfirm = () => {
     return (
-      <Modal
-        isOpen={promise !== null}
-        onClose={handleCancel}
-      >
+      <Modal isOpen={promise !== null} onClose={handleCancel}>
         <ModalContent>
           <ModalHeader>{title}</ModalHeader>
           <ModalBody>{message}</ModalBody>
           <ModalFooter>
             <Button onClick={handleCancel}>Cancel</Button>
-            <Button
-              onClick={handleConfirm}
-              variant="error"
-            >
+            <Button onClick={handleConfirm} variant="error">
               Confirm
             </Button>
           </ModalFooter>

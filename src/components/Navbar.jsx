@@ -10,16 +10,16 @@ export const Navbar = () => {
   const { onOpen } = useModalOptions();
   const { onOpen: onOpenModalStats } = useModalStats();
   return (
-    <header className="flex justify-between pt-3 items-center w-full h-14">
+    <header className="flex h-14 w-full items-center justify-between pt-3">
       <Logo />
       <div className="space-x-3">
         <Button onClick={onOpenModalStats}>
           <ImStatsDots className="size-5" />
-          <span className="hidden md:block select-none">Stats</span>
+          <span className="hidden select-none md:block">Stats</span>
         </Button>
         <Button onClick={onOpen}>
           <FaGear className="size-5" />
-          <span className="hidden md:block select-none">Settings</span>
+          <span className="hidden select-none md:block">Settings</span>
         </Button>
       </div>
     </header>

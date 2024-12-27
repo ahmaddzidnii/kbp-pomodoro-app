@@ -26,7 +26,10 @@ export const Pomodoro = () => {
   const [isManual, setIsManual] = useState(true);
 
   const { timeLeft, isActive, start, pause, reset } = useCountDown({
-    initialTime: state.timerType === "pomodoro" ? state.timers.pomodoro : state.timers.istirahat,
+    initialTime:
+      state.timerType === "pomodoro"
+        ? state.timers.pomodoro
+        : state.timers.istirahat,
     onEnd: () => {
       setTimeout(() => {
         playSound();
@@ -68,8 +71,8 @@ export const Pomodoro = () => {
     const audio = document.createElement("audio");
     audio.src =
       state.timerType === "pomodoro"
-        ? state.audios.istirahat ?? "/assets/sounds/saatnyaistirahat.mp3"
-        : state.audios.pomodoro ?? "/assets/sounds/bell.mp3";
+        ? (state.audios.istirahat ?? "/assets/sounds/saatnyaistirahat.mp3")
+        : (state.audios.pomodoro ?? "/assets/sounds/bell.mp3");
     audio.volume = state.volumeAlarm;
     audio.play();
   }
@@ -85,14 +88,17 @@ export const Pomodoro = () => {
   };
 
   return (
-    <section className="bg-[#307BA9] text-foreground rounded-md  h-[240px] shadow-[3px_3px_0_0_rgba(0,0,0,1)] flex justify-center items-center">
-      <div className="text-center space-y-2">
-        <div className="flex gap-x-2 md:gap-x-5 items-center justify-center font-bold">
+    <section className="flex h-[240px] items-center justify-center rounded-md bg-[#307BA9] text-foreground shadow-[3px_3px_0_0_rgba(0,0,0,1)]">
+      <div className="space-y-2 text-center">
+        <div className="flex items-center justify-center gap-x-2 font-bold md:gap-x-5">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               disabled={state.timerType === tab.id}
-              className={cn("rounded-md px-1.5 py-2", state.timerType === tab.id && "bg-[#26ACFF]")}
+              className={cn(
+                "rounded-md px-1.5 py-2",
+                state.timerType === tab.id && "bg-[#26ACFF]",
+              )}
               onClick={() => {
                 handleTabChange(tab.id);
               }}
@@ -104,33 +110,33 @@ export const Pomodoro = () => {
         <div>
           <p
             style={{ fontFamily: "Arial, sans-serif" }}
-            className="text-[42px] lg:text-[64px] font-extrabold tracking-[3px]"
+            className="text-[42px] font-extrabold tracking-[3px] lg:text-[64px]"
           >
             {formatCountdown(timeLeft)}
           </p>
         </div>
 
-        <div className="flex gap-x-3 items-center justify-center">
+        <div className="flex items-center justify-center gap-x-3">
           {isActive ? (
             <button
               onClick={handlePause}
-              className="bg-[#1D4C6A] text-foreground inline-flex items-center rounded-md font-bold px-4 py-2 border-2 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-[#1D4C6A]/80"
+              className="inline-flex items-center rounded-md border-2 border-black bg-[#1D4C6A] px-4 py-2 font-bold text-foreground shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-[#1D4C6A]/80"
             >
               <FaPause className="size-6" />
-              <span className="ml-3 hidden md:block ">Pause</span>
+              <span className="ml-3 hidden md:block">Pause</span>
             </button>
           ) : (
             <button
               onClick={handleStart}
-              className="bg-[#1D4C6A] text-foreground inline-flex items-center rounded-md font-bold px-4 py-2 border-2 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-[#1D4C6A]/80"
+              className="inline-flex items-center rounded-md border-2 border-black bg-[#1D4C6A] px-4 py-2 font-bold text-foreground shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-[#1D4C6A]/80"
             >
               <FaPlay className="size-6" />
-              <span className="ml-3 hidden md:block ">Mulai</span>
+              <span className="ml-3 hidden md:block">Mulai</span>
             </button>
           )}
           <button
             onClick={handleReset}
-            className="bg-[#1D4C6A] text-foreground rounded-md font-bold px-4 py-2 border-2 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-[#1D4C6A]/80"
+            className="rounded-md border-2 border-black bg-[#1D4C6A] px-4 py-2 font-bold text-foreground shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-[#1D4C6A]/80"
           >
             <GrPowerReset className="size-6" />
           </button>

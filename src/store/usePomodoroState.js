@@ -33,6 +33,6 @@ export const usePomodoroState = create(
       name: "pomodoro-state",
       storage: createJSONStorage(() => localStorage),
       version: 1,
-    }
-  )
+    },
+  ),
 );

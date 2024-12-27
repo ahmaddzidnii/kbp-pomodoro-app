@@ -23,9 +23,10 @@ export const BackgroundColorProvider = ({ children }) => {
         <title>{`${title}`}</title>
       </Helmet>
       <div
-        className="min-h-screen h-full px-2 lg:px-0 transition-colors duration-500"
+        className="h-full min-h-screen px-2 transition-colors duration-500 lg:px-0"
         style={{
-          backgroundColor: state.timerType === "pomodoro" ? "#7FCEFF" : "#5EBA7D",
+          backgroundColor:
+            state.timerType === "pomodoro" ? "#7FCEFF" : "#5EBA7D",
         }}
       >
         {children}
