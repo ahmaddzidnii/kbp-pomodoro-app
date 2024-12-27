@@ -1,4 +1,5 @@
 # Fokusify!⚡ - Web Manajemen Waktu Fokus
+![image](https://github.com/user-attachments/assets/2b092995-272d-49cb-8a0f-eb642fb316a8)
 
 Selamat datang di Fokusify!, aplikasi web yang dirancang khusus untuk membantu kamu tetap fokus dan produktif dalam aktivitas sehari-hari. Dengan fitur-fitur intuitif seperti manajemen waktu, pengelolaan tugas, dan pemutar musik, Fokusify! hadir untuk menemani perjalananmu mencapai target dengan lebih mudah. 🎯
 
