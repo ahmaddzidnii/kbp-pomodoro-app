@@ -1,9 +1,10 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { FaPlus } from "react-icons/fa6";
+import { BiLoaderCircle } from "react-icons/bi";
 
 import { Button } from "./Button";
-import { BiLoaderCircle } from "react-icons/bi";
+import { DEFAULT_PLAYLIST_URL } from "../constants/spotifyConfig";
 
 export const Spotify = () => {
   const [playlist, setPlaylist] = useState("");
@@ -11,9 +12,7 @@ export const Spotify = () => {
   const [isErrorSpotify, setIsErrorSpotify] = useState(false);
   const [isLoadingSpotify, setIsLoadingSpotify] = useState(true);
 
-  const [playlistCommit, setPlaylistCommit] = useState(
-    "https://open.spotify.com/embed/album/48VJneXoN4AW5QAT4Ruwkc",
-  );
+  const [playlistCommit, setPlaylistCommit] = useState(DEFAULT_PLAYLIST_URL);
 
   const handleChangePlaylist = (e) => {
     e.preventDefault();
