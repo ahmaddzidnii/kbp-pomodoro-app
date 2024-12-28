@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 // Helper untuk generate data kosong
-const generateEmptyData = (daysBack = 365) => {
+const generateEmptyData = (daysBack = 371) => {
   const data = [];
   const today = new Date();
 

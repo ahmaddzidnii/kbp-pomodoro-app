@@ -51,7 +51,10 @@ export const useConfirm = (
           <ModalBody>{message}</ModalBody>
           <ModalFooter>
             <Button onClick={handleCancel}>Cancel</Button>
-            <Button onClick={handleConfirm} variant="error">
+            <Button
+              onClick={handleConfirm}
+              className="bg-red-500 text-white hover:bg-red-500/80"
+            >
               Confirm
             </Button>
           </ModalFooter>

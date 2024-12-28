@@ -10,7 +10,7 @@ export const HeatMapChart = () => {
   const { contributions: exampleData } = useContributionStore();
 
   const today = new Date();
-  const endDate = new Date(today.getTime() - 365 * 24 * 60 * 60 * 1000); // 365 hari yang lalu
+  const endDate = new Date(today.getTime() - 371 * 24 * 60 * 60 * 1000); // 365 hari yang lalu
 
   // Hitung nilai maksimum dan minimum untuk skala
   const maxCount = Math.max(...exampleData.map((item) => item.count));

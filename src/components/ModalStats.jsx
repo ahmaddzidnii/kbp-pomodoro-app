@@ -27,10 +27,8 @@ export const ModalStats = () => {
     >
       <ModalContent>
         <>
-          <ModalHeader className="flex flex-col gap-1">
-            Graph Keaktifan{" "}
-          </ModalHeader>
-          <ModalBody className="">
+          <ModalHeader>Graph Keaktifan</ModalHeader>
+          <ModalBody className="gap-0">
             <HeatMapChart />
             <p className="text-sm text-slate-400">
               *Aktivitas dihitung dari jumlah berapa kali menyelesaikan todo
